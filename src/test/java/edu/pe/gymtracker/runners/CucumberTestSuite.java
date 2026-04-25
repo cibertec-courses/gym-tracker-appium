@@ -12,7 +12,7 @@ import static io.cucumber.junit.platform.engine.Constants.GLUE_PROPERTY_NAME;
 @SelectClasspathResource("features/exercise.feature")
 @ConfigurationParameter(
         key = GLUE_PROPERTY_NAME,
-        value = "edu.pe.gymtracker.stepdefinitions,edu.pe.gymtracker.hooks"
+        value = "edu.pe.gymtracker.stepdefinitions"
 )
 public class CucumberTestSuite {
 }

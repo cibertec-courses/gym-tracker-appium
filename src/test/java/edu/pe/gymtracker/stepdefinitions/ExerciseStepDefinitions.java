@@ -1,11 +1,7 @@
 package edu.pe.gymtracker.stepdefinitions;
 
-import edu.pe.gymtracker.abillities.UseAnAppiumDriver;
 import edu.pe.gymtracker.questions.ExerciseVisible;
 import edu.pe.gymtracker.tasks.AddExercise;
-import edu.pe.gymtracker.utils.DriverManager;
-import io.appium.java_client.AppiumBy;
-import io.appium.java_client.android.AndroidDriver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -13,28 +9,25 @@ import io.cucumber.java.en.When;
 import net.serenitybdd.annotations.Managed;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
-import net.thucydides.core.webdriver.WebDriverFacade;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.remote.Browser;
+
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 public class ExerciseStepDefinitions {
+
+    @Managed
+    private WebDriver driver;
 
     private Actor actor;
     private String nombre;
     private String grupoMuscular;
     private String tipo;
 
-
-    static{
-        System.out.println("STEPS CARGADOs");
-    }
-
     @Given("que el usuario abre la app GymTracker")
     public void que_el_usuario_abre_la_app_GymTracker() {
         actor = Actor.named("usuario");
-        actor.can(BrowseTheWeb.with(DriverManager.getDriver()));
+        actor.can(BrowseTheWeb.with(driver));
     }
 
     @When("presiona el boton de agregar ejercicio")
